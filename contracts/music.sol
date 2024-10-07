@@ -48,7 +48,7 @@ contract Music {
      emit Donation(userName[msg.sender],_artist,_amount);
   }
   function buySong(string memory _songName,string memory _songArtist) public payable  {
-     if(keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Artists")))||keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Listeners")))){
+     if(keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Artists")))&&keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Listeners")))){
       revert("User doesn't Exist");
     }
      bytes32 songHash = keccak256(abi.encodePacked(_songArtist,_songName));
