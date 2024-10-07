@@ -68,7 +68,7 @@ contract Music {
   
   function uploadSongs(string memory _songName,uint24 _price) public  {
     require(_price > 0,"Not a valid Price");
-    require(keccak256(abi.encodePacked(userType[msg.sender])) == keccak256(abi.encodePacked(("Artists"))),"Not authorised");
+    require(keccak256(abi.encodePacked((userType[msg.sender]))) == keccak256(abi.encodePacked(("Artists"))),"Not authorised");
     bytes32 songHash = keccak256(abi.encodePacked(userName[msg.sender],_songName));
     require(songs[songHash].price == 0 && songs[songHash].artist ==address(0),"Song already exists");
     
