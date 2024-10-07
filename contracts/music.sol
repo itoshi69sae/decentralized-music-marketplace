@@ -36,7 +36,7 @@ contract Music {
     
   }
   function DonateToArtist(string memory _artist,uint _amount) public payable{
-    if(keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Artists")))||keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Listeners")))){
+    if(keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Artists")))&&keccak256(abi.encodePacked((userType[msg.sender]))) != keccak256(abi.encodePacked(("Listeners")))){
       revert("User doesn't Exist");
     }
     require(userAddress[_artist]!=address(0),"invalid artist");
